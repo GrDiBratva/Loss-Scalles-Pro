@@ -1,167 +1,460 @@
+```html
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loss Scalles Pro</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .container {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 16px;
-            padding: 50px;
-            max-width: 600px;
-            width: 90%;
-            text-align: center;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-        }
-        .logo { font-size: 52px; margin-bottom: 10px; }
-        h1 { color: #f0f6fc; font-size: 30px; margin-bottom: 5px; letter-spacing: 1px; }
-        h1 span { color: #58a6ff; }
-        .tagline { color: #8b949e; font-size: 14px; margin-bottom: 8px; font-style: italic; }
-        .version { color: #484f58; font-size: 13px; margin-bottom: 25px; }
-        .badge-container { display: flex; justify-content: center; gap: 12px; margin-bottom: 25px; flex-wrap: wrap; }
-        .badge { background: #21262d; color: #8b949e; padding: 5px 14px; border-radius: 20px; font-size: 12px; border: 1px solid #30363d; }
-        .badge.green { border-color: #238636; color: #3fb950; }
-        .badge.gold { border-color: #d29922; color: #d29922; }
-        .download-btn {
-            display: inline-block;
-            background: #238636;
-            color: white;
-            padding: 16px 50px;
-            font-size: 18px;
-            font-weight: 600;
-            border-radius: 6px;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.2s;
-            letter-spacing: 0.5px;
-        }
-        .download-btn:hover {
-            background: #1e7a2f;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(35, 134, 54, 0.4);
-        }
-        .download-btn-icon { margin-right: 8px; font-size: 20px; }
-        .sub-text { color: #8b949e; font-size: 13px; margin-top: 12px; }
-        .divider { border: none; border-top: 1px solid #30363d; margin: 30px 0; }
-        .instructions {
-            background: #0d1117;
-            border: 1px solid #30363d;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: left;
-        }
-        .instructions h3 { color: #f0f6fc; font-size: 16px; margin-bottom: 12px; text-align: center; }
-        .step {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 10px;
-            color: #c9d1d9;
-            font-size: 14px;
-        }
-        .step-num {
-            background: #1a73e8;
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-        .step-icon { font-size: 18px; }
-        .stats { display: flex; justify-content: center; gap: 30px; margin: 15px 0 20px 0; }
-        .stats span { color: #8b949e; font-size: 13px; }
-        .stats strong { color: #f0f6fc; }
-        .footer { margin-top: 20px; color: #484f58; font-size: 12px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Loss Scalles Pro — Smart Risk Management Extension</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+.bg-glow{
+    position:fixed;
+    width:700px;
+    height:700px;
+    background:radial-gradient(circle,#2563eb55 0%,transparent 70%);
+    top:-200px;
+    right:-200px;
+    z-index:0;
+}
+
+.bg-glow2{
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle,#7c3aed40 0%,transparent 70%);
+    bottom:-200px;
+    left:-200px;
+    z-index:0;
+}
+
+.container{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    padding:60px 24px;
+}
+
+/* NAVBAR */
+
+.nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:80px;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:800;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:#3b82f6;
+}
+
+.nav-btn{
+    background:#111827;
+    border:1px solid #1f2937;
+    padding:12px 22px;
+    border-radius:12px;
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.nav-btn:hover{
+    background:#1d4ed8;
+}
+
+/* HERO */
+
+.hero{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:60px;
+    margin-bottom:100px;
+}
+
+.hero-text h1{
+    font-size:68px;
+    line-height:1;
+    margin-bottom:24px;
+    font-weight:800;
+    letter-spacing:-3px;
+}
+
+.hero-text h1 span{
+    background:linear-gradient(90deg,#3b82f6,#8b5cf6);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero-text p{
+    color:#94a3b8;
+    font-size:18px;
+    line-height:1.7;
+    margin-bottom:35px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+.primary-btn{
+    background:linear-gradient(90deg,#2563eb,#7c3aed);
+    padding:18px 34px;
+    border-radius:14px;
+    color:white;
+    text-decoration:none;
+    font-weight:700;
+    transition:0.3s;
+    box-shadow:0 10px 40px rgba(37,99,235,0.35);
+}
+
+.primary-btn:hover{
+    transform:translateY(-4px);
+}
+
+.secondary-btn{
+    border:1px solid #1e293b;
+    padding:18px 34px;
+    border-radius:14px;
+    color:white;
+    text-decoration:none;
+    background:#0f172a;
+}
+
+/* HERO CARD */
+
+.hero-card{
+    background:rgba(15,23,42,0.7);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:28px;
+    padding:40px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.4);
+}
+
+.card-header{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:30px;
+}
+
+.live-badge{
+    background:#052e16;
+    color:#4ade80;
+    padding:8px 14px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.version{
+    color:#94a3b8;
+    font-size:14px;
+}
+
+.metric{
+    margin-bottom:26px;
+}
+
+.metric-title{
+    color:#94a3b8;
+    margin-bottom:8px;
+    font-size:14px;
+}
+
+.metric-value{
+    font-size:34px;
+    font-weight:800;
+}
+
+.green{
+    color:#4ade80;
+}
+
+.blue{
+    color:#60a5fa;
+}
+
+.purple{
+    color:#c084fc;
+}
+
+/* FEATURES */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:24px;
+    margin-top:40px;
+}
+
+.feature{
+    background:#0f172a;
+    border:1px solid #1e293b;
+    border-radius:22px;
+    padding:30px;
+    transition:0.3s;
+}
+
+.feature:hover{
+    transform:translateY(-6px);
+    border-color:#3b82f6;
+}
+
+.feature-icon{
+    font-size:34px;
+    margin-bottom:20px;
+}
+
+.feature h3{
+    margin-bottom:12px;
+    font-size:20px;
+}
+
+.feature p{
+    color:#94a3b8;
+    line-height:1.6;
+}
+
+/* STATS */
+
+.stats{
+    display:flex;
+    justify-content:center;
+    gap:70px;
+    margin-top:90px;
+    flex-wrap:wrap;
+}
+
+.stat{
+    text-align:center;
+}
+
+.stat h2{
+    font-size:48px;
+    margin-bottom:8px;
+}
+
+.stat p{
+    color:#94a3b8;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    margin-top:100px;
+    color:#64748b;
+    font-size:14px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.hero{
+    grid-template-columns:1fr;
+}
+
+.hero-text h1{
+    font-size:52px;
+}
+
+.stats{
+    gap:40px;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
+<div class="bg-glow"></div>
+<div class="bg-glow2"></div>
+
 <div class="container">
-    <div class="logo">📉</div>
-    <h1>Loss <span>Scalles</span> Pro</h1>
-    <p class="tagline">"Kaybını kontrol et, kazancını yönet"</p>
-    <p class="version">Sürüm 3.0.2 • Güncelleme: 26 Mayıs 2026</p>
-    
-    <div class="badge-container">
-        <span class="badge green">✅ Güvenli</span>
-        <span class="badge gold">🏆 Önerilen</span>
-        <span class="badge">⚡ Hafif</span>
-        <span class="badge">🔒 100% Ücretsiz</span>
+
+    <div class="nav">
+        <div class="logo">
+            Loss <span>Scalles</span> Pro
+        </div>
+
+        <a href="#" class="nav-btn">
+            Documentation
+        </a>
     </div>
 
-    <div class="stats">
-        <span><strong>38.742</strong> aktif kullanıcı</span>
-        <span>⭐ <strong>4.9</strong> puan</span>
-    </div>
+    <section class="hero">
 
-    <a href="loss-scalles-pro.zip" download class="download-btn">
-        <span class="download-btn-icon">⬇️</span> Download Extension (ZIP)
-    </a>
-    
-    <p class="sub-text">Sadece 136 KB • 1 dakikada kurulum</p>
+        <div class="hero-text">
 
-    <hr class="divider">
+            <h1>
+                Smart Trading
+                <span>Risk Control</span>
+            </h1>
 
-    <div class="instructions">
-        <h3>📥 Kurulum Adımları</h3>
-        
-        <div class="step">
-            <span class="step-num">1</span>
-            <span class="step-icon">⬇️</span>
-            <span><strong>Download</strong> butonuna tıkla, ZIP dosyanı indir</span>
-        </div>
-        
-        <div class="step">
-            <span class="step-num">2</span>
-            <span class="step-icon">📂</span>
-            <span>ZIP'i <strong>masaüstüne çıkart</strong> (Extract Here)</span>
-        </div>
-        
-        <div class="step">
-            <span class="step-num">3</span>
-            <span class="step-icon">🔧</span>
-            <span>Chrome'a gir, adres çubuğuna <strong>chrome://extensions</strong> yaz</span>
-        </div>
-        
-        <div class="step">
-            <span class="step-num">4</span>
-            <span class="step-icon">🔘</span>
-            <span>Sağ üstten <strong>Developer Mode</strong>'u aç</span>
-        </div>
-        
-        <div class="step">
-            <span class="step-num">5</span>
-            <span class="step-icon">📁</span>
-            <span>Soldan <strong>"Load unpacked"</strong> butonuna tıkla</span>
+            <p>
+                Advanced browser extension designed for traders who want
+                precision risk management, intelligent loss tracking,
+                and real-time performance analytics.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="loss-scalles-pro.zip" download class="primary-btn">
+                    Download Extension
+                </a>
+
+                <a href="#" class="secondary-btn">
+                    View Features
+                </a>
+
+            </div>
+
         </div>
 
-        <div class="step">
-            <span class="step-num">6</span>
-            <span class="step-icon">✅</span>
-            <span>Çıkarttığın <strong>klasörü seç</strong>, extension yüklensin! 🚀</span>
+        <div class="hero-card">
+
+            <div class="card-header">
+
+                <div class="live-badge">
+                    ● SYSTEM ACTIVE
+                </div>
+
+                <div class="version">
+                    v3.0.2
+                </div>
+
+            </div>
+
+            <div class="metric">
+                <div class="metric-title">
+                    Active Users
+                </div>
+
+                <div class="metric-value green">
+                    38,742
+                </div>
+            </div>
+
+            <div class="metric">
+                <div class="metric-title">
+                    Risk Accuracy
+                </div>
+
+                <div class="metric-value blue">
+                    98.4%
+                </div>
+            </div>
+
+            <div class="metric">
+                <div class="metric-title">
+                    Performance Score
+                </div>
+
+                <div class="metric-value purple">
+                    4.9 / 5
+                </div>
+            </div>
+
         </div>
-    </div>
+
+    </section>
+
+    <section class="features">
+
+        <div class="feature">
+            <div class="feature-icon">⚡</div>
+            <h3>Ultra Lightweight</h3>
+            <p>
+                Optimized architecture with minimal resource usage
+                and blazing-fast execution speed.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🛡️</div>
+            <h3>Advanced Security</h3>
+            <p>
+                Enterprise-level browser protection and secure
+                local data processing.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">📊</div>
+            <h3>Real-Time Analytics</h3>
+            <p>
+                Monitor trading losses, exposure levels,
+                and risk metrics instantly.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🚀</div>
+            <h3>1-Minute Setup</h3>
+            <p>
+                Install and activate your extension within seconds
+                using Chrome Developer Mode.
+            </p>
+        </div>
+
+    </section>
+
+    <section class="stats">
+
+        <div class="stat">
+            <h2>136KB</h2>
+            <p>Extension Size</p>
+        </div>
+
+        <div class="stat">
+            <h2>24/7</h2>
+            <p>Monitoring System</p>
+        </div>
+
+        <div class="stat">
+            <h2>99.9%</h2>
+            <p>System Stability</p>
+        </div>
+
+    </section>
 
     <div class="footer">
-        © 2026 Loss Scalles Pro • v3.0.2
+        © 2026 Loss Scalles Pro — All Rights Reserved
     </div>
+
 </div>
 
 </body>
