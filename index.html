@@ -2,10 +2,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Loss Scalles Pro — Smart Risk Management Extension</title>
+<title>Loss Scalles Pro — Roblox Visual Enhancement Suite</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -20,30 +20,30 @@
 
 body{
     font-family:'Inter',sans-serif;
-    background:#050816;
+    background:#060b16;
     color:white;
     overflow-x:hidden;
 }
 
 /* BACKGROUND */
 
-.bg-glow{
+.background-glow{
     position:fixed;
-    width:700px;
-    height:700px;
-    background:radial-gradient(circle,#2563eb55 0%,transparent 70%);
-    top:-200px;
+    width:900px;
+    height:900px;
+    background:radial-gradient(circle,#2563eb35 0%,transparent 70%);
+    top:-300px;
     right:-200px;
     z-index:0;
 }
 
-.bg-glow2{
+.background-glow-2{
     position:fixed;
-    width:600px;
-    height:600px;
-    background:radial-gradient(circle,#7c3aed40 0%,transparent 70%);
-    bottom:-200px;
-    left:-200px;
+    width:700px;
+    height:700px;
+    background:radial-gradient(circle,#7c3aed30 0%,transparent 70%);
+    bottom:-250px;
+    left:-250px;
     z-index:0;
 }
 
@@ -51,22 +51,22 @@ body{
     position:relative;
     z-index:2;
     width:100%;
-    max-width:1200px;
+    max-width:1300px;
     margin:auto;
-    padding:60px 24px;
+    padding:40px 24px 80px;
 }
 
 /* NAVBAR */
 
-.nav{
+.navbar{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:80px;
+    margin-bottom:90px;
 }
 
 .logo{
-    font-size:24px;
+    font-size:28px;
     font-weight:800;
     letter-spacing:-1px;
 }
@@ -75,18 +75,24 @@ body{
     color:#3b82f6;
 }
 
+.nav-buttons{
+    display:flex;
+    gap:14px;
+}
+
 .nav-btn{
-    background:#111827;
-    border:1px solid #1f2937;
+    background:#0f172a;
+    border:1px solid #1e293b;
     padding:12px 22px;
-    border-radius:12px;
-    color:white;
+    border-radius:14px;
     text-decoration:none;
+    color:white;
     transition:0.3s;
 }
 
 .nav-btn:hover{
-    background:#1d4ed8;
+    border-color:#3b82f6;
+    background:#111c35;
 }
 
 /* HERO */
@@ -94,86 +100,87 @@ body{
 .hero{
     display:grid;
     grid-template-columns:1fr 1fr;
+    gap:70px;
     align-items:center;
-    gap:60px;
-    margin-bottom:100px;
 }
 
-.hero-text h1{
-    font-size:68px;
-    line-height:1;
-    margin-bottom:24px;
+.hero-left h1{
+    font-size:72px;
+    line-height:0.95;
     font-weight:800;
-    letter-spacing:-3px;
+    margin-bottom:28px;
+    letter-spacing:-4px;
 }
 
-.hero-text h1 span{
+.hero-left h1 span{
     background:linear-gradient(90deg,#3b82f6,#8b5cf6);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
 
-.hero-text p{
+.hero-left p{
     color:#94a3b8;
     font-size:18px;
-    line-height:1.7;
-    margin-bottom:35px;
+    line-height:1.8;
+    margin-bottom:36px;
+    max-width:620px;
 }
 
 .hero-buttons{
     display:flex;
-    gap:16px;
+    gap:18px;
     flex-wrap:wrap;
 }
 
 .primary-btn{
     background:linear-gradient(90deg,#2563eb,#7c3aed);
     padding:18px 34px;
-    border-radius:14px;
-    color:white;
+    border-radius:16px;
     text-decoration:none;
+    color:white;
     font-weight:700;
     transition:0.3s;
-    box-shadow:0 10px 40px rgba(37,99,235,0.35);
+    box-shadow:0 15px 50px rgba(37,99,235,0.35);
 }
 
 .primary-btn:hover{
-    transform:translateY(-4px);
+    transform:translateY(-5px);
 }
 
 .secondary-btn{
+    background:#0f172a;
     border:1px solid #1e293b;
     padding:18px 34px;
-    border-radius:14px;
-    color:white;
+    border-radius:16px;
     text-decoration:none;
-    background:#0f172a;
+    color:white;
 }
 
-/* HERO CARD */
+/* HERO PANEL */
 
-.hero-card{
+.hero-panel{
     background:rgba(15,23,42,0.7);
-    backdrop-filter:blur(18px);
     border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(18px);
     border-radius:28px;
-    padding:40px;
-    box-shadow:0 20px 60px rgba(0,0,0,0.4);
+    padding:34px;
+    box-shadow:0 25px 80px rgba(0,0,0,0.45);
 }
 
-.card-header{
+.panel-top{
     display:flex;
     justify-content:space-between;
+    align-items:center;
     margin-bottom:30px;
 }
 
-.live-badge{
+.status{
     background:#052e16;
     color:#4ade80;
-    padding:8px 14px;
+    padding:8px 16px;
     border-radius:999px;
     font-size:13px;
-    font-weight:600;
+    font-weight:700;
 }
 
 .version{
@@ -181,27 +188,39 @@ body{
     font-size:14px;
 }
 
-.metric{
-    margin-bottom:26px;
+.performance-box{
+    background:#111827;
+    border:1px solid #1f2937;
+    border-radius:18px;
+    padding:24px;
+    margin-bottom:20px;
 }
 
-.metric-title{
+.performance-box h3{
+    margin-bottom:18px;
+    font-size:18px;
+}
+
+.metric{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:14px;
+}
+
+.metric-name{
     color:#94a3b8;
-    margin-bottom:8px;
-    font-size:14px;
 }
 
 .metric-value{
-    font-size:34px;
-    font-weight:800;
-}
-
-.green{
-    color:#4ade80;
+    font-weight:700;
 }
 
 .blue{
     color:#60a5fa;
+}
+
+.green{
+    color:#4ade80;
 }
 
 .purple{
@@ -210,39 +229,56 @@ body{
 
 /* FEATURES */
 
+.section-title{
+    text-align:center;
+    font-size:48px;
+    margin-top:120px;
+    margin-bottom:18px;
+    font-weight:800;
+}
+
+.section-sub{
+    text-align:center;
+    color:#94a3b8;
+    max-width:700px;
+    margin:auto;
+    line-height:1.7;
+    margin-bottom:60px;
+}
+
 .features{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:24px;
-    margin-top:40px;
 }
 
 .feature{
     background:#0f172a;
     border:1px solid #1e293b;
-    border-radius:22px;
-    padding:30px;
-    transition:0.3s;
+    border-radius:24px;
+    padding:32px;
+    transition:0.35s;
 }
 
 .feature:hover{
-    transform:translateY(-6px);
+    transform:translateY(-8px);
     border-color:#3b82f6;
+    box-shadow:0 15px 40px rgba(59,130,246,0.15);
 }
 
 .feature-icon{
-    font-size:34px;
+    font-size:38px;
     margin-bottom:20px;
 }
 
 .feature h3{
-    margin-bottom:12px;
-    font-size:20px;
+    margin-bottom:14px;
+    font-size:21px;
 }
 
 .feature p{
     color:#94a3b8;
-    line-height:1.6;
+    line-height:1.7;
 }
 
 /* STATS */
@@ -250,9 +286,9 @@ body{
 .stats{
     display:flex;
     justify-content:center;
-    gap:70px;
-    margin-top:90px;
     flex-wrap:wrap;
+    gap:80px;
+    margin-top:110px;
 }
 
 .stat{
@@ -260,7 +296,7 @@ body{
 }
 
 .stat h2{
-    font-size:48px;
+    font-size:52px;
     margin-bottom:8px;
 }
 
@@ -271,26 +307,26 @@ body{
 /* FOOTER */
 
 .footer{
+    margin-top:120px;
     text-align:center;
-    margin-top:100px;
     color:#64748b;
     font-size:14px;
 }
 
 /* RESPONSIVE */
 
-@media(max-width:900px){
+@media(max-width:950px){
 
 .hero{
     grid-template-columns:1fr;
 }
 
-.hero-text h1{
-    font-size:52px;
+.hero-left h1{
+    font-size:54px;
 }
 
-.stats{
-    gap:40px;
+.section-title{
+    font-size:38px;
 }
 
 }
@@ -300,34 +336,48 @@ body{
 
 <body>
 
-<div class="bg-glow"></div>
-<div class="bg-glow2"></div>
+<div class="background-glow"></div>
+<div class="background-glow-2"></div>
 
 <div class="container">
 
-    <div class="nav">
+    <!-- NAVBAR -->
+
+    <div class="navbar">
+
         <div class="logo">
             Loss <span>Scalles</span> Pro
         </div>
 
-        <a href="#" class="nav-btn">
-            Documentation
-        </a>
+        <div class="nav-buttons">
+
+            <a href="#" class="nav-btn">
+                Features
+            </a>
+
+            <a href="#" class="nav-btn">
+                Documentation
+            </a>
+
+        </div>
+
     </div>
+
+    <!-- HERO -->
 
     <section class="hero">
 
-        <div class="hero-text">
+        <div class="hero-left">
 
             <h1>
-                Smart Trading
-                <span>Risk Control</span>
+                Roblox
+                <span>Graphics Upgrade</span>
             </h1>
 
             <p>
-                Advanced browser extension designed for traders who want
-                precision risk management, intelligent loss tracking,
-                and real-time performance analytics.
+                Advanced rendering extension designed to enhance Roblox visuals,
+                optimize lighting quality, unlock smoother performance,
+                improve texture clarity, and provide next-generation visual settings.
             </p>
 
             <div class="hero-buttons">
@@ -337,125 +387,170 @@ body{
                 </a>
 
                 <a href="#" class="secondary-btn">
-                    View Features
+                    Learn More
                 </a>
 
             </div>
 
         </div>
 
-        <div class="hero-card">
+        <!-- PANEL -->
 
-            <div class="card-header">
+        <div class="hero-panel">
 
-                <div class="live-badge">
-                    ● SYSTEM ACTIVE
+            <div class="panel-top">
+
+                <div class="status">
+                    ● ONLINE
                 </div>
 
                 <div class="version">
-                    v3.0.2
+                    Version 3.2.1
                 </div>
 
             </div>
 
-            <div class="metric">
-                <div class="metric-title">
-                    Active Users
+            <div class="performance-box">
+
+                <h3>Performance Overview</h3>
+
+                <div class="metric">
+                    <span class="metric-name">Rendering Level</span>
+                    <span class="metric-value blue">ULTRA HD</span>
                 </div>
 
-                <div class="metric-value green">
-                    38,742
-                </div>
-            </div>
-
-            <div class="metric">
-                <div class="metric-title">
-                    Risk Accuracy
+                <div class="metric">
+                    <span class="metric-name">Texture Quality</span>
+                    <span class="metric-value green">ENHANCED</span>
                 </div>
 
-                <div class="metric-value blue">
-                    98.4%
-                </div>
-            </div>
-
-            <div class="metric">
-                <div class="metric-title">
-                    Performance Score
+                <div class="metric">
+                    <span class="metric-name">FPS Optimization</span>
+                    <span class="metric-value purple">+42%</span>
                 </div>
 
-                <div class="metric-value purple">
-                    4.9 / 5
+                <div class="metric">
+                    <span class="metric-name">Latency Stabilizer</span>
+                    <span class="metric-value green">ACTIVE</span>
                 </div>
+
+                <div class="metric">
+                    <span class="metric-name">WPA3 Secure Protection</span>
+                    <span class="metric-value blue">ENABLED</span>
+                </div>
+
             </div>
 
         </div>
 
     </section>
 
-    <section class="features">
+    <!-- FEATURES -->
+
+    <h2 class="section-title">
+        Premium Features
+    </h2>
+
+    <p class="section-sub">
+        Unlock advanced graphics controls, smoother rendering,
+        enhanced shaders, and optimized visual performance
+        for a next-generation Roblox experience.
+    </p>
+
+    <div class="features">
+
+        <div class="feature">
+            <div class="feature-icon">🎮</div>
+            <h3>Advanced Rendering Engine</h3>
+            <p>
+                Unlock improved render distance, dynamic shadows,
+                enhanced reflections, and cinematic visual quality.
+            </p>
+        </div>
 
         <div class="feature">
             <div class="feature-icon">⚡</div>
-            <h3>Ultra Lightweight</h3>
+            <h3>FPS Performance Boost</h3>
             <p>
-                Optimized architecture with minimal resource usage
-                and blazing-fast execution speed.
+                Reduce frame drops and optimize GPU usage
+                for smoother gameplay performance.
             </p>
         </div>
 
         <div class="feature">
             <div class="feature-icon">🛡️</div>
-            <h3>Advanced Security</h3>
+            <h3>WPA3 Network Shield</h3>
             <p>
-                Enterprise-level browser protection and secure
-                local data processing.
+                Enhanced secure connection protocols and
+                advanced packet stabilization technology.
             </p>
         </div>
 
         <div class="feature">
-            <div class="feature-icon">📊</div>
-            <h3>Real-Time Analytics</h3>
+            <div class="feature-icon">🌈</div>
+            <h3>RTX Visual Filters</h3>
             <p>
-                Monitor trading losses, exposure levels,
-                and risk metrics instantly.
+                Experience improved color grading,
+                sharper textures, bloom effects,
+                and realistic lighting.
             </p>
         </div>
 
         <div class="feature">
             <div class="feature-icon">🚀</div>
-            <h3>1-Minute Setup</h3>
+            <h3>One-Click Optimization</h3>
             <p>
-                Install and activate your extension within seconds
-                using Chrome Developer Mode.
+                Automatically configure graphics,
+                memory allocation, and rendering settings.
             </p>
         </div>
 
-    </section>
+        <div class="feature">
+            <div class="feature-icon">🔒</div>
+            <h3>Safe & Lightweight</h3>
+            <p>
+                Minimal system impact with optimized architecture
+                and secure local processing.
+            </p>
+        </div>
 
-    <section class="stats">
+    </div>
+
+    <!-- STATS -->
+
+    <div class="stats">
 
         <div class="stat">
-            <h2>136KB</h2>
+            <h2>58K+</h2>
+            <p>Active Users</p>
+        </div>
+
+        <div class="stat">
+            <h2>4.9★</h2>
+            <p>User Rating</p>
+        </div>
+
+        <div class="stat">
+            <h2>99.8%</h2>
+            <p>Stability Rate</p>
+        </div>
+
+        <div class="stat">
+            <h2>1.2MB</h2>
             <p>Extension Size</p>
         </div>
 
-        <div class="stat">
-            <h2>24/7</h2>
-            <p>Monitoring System</p>
-        </div>
+    </div>
 
-        <div class="stat">
-            <h2>99.9%</h2>
-            <p>System Stability</p>
-        </div>
-
-    </section>
+    <!-- FOOTER -->
 
     <div class="footer">
-        © 2026 Loss Scalles Pro — All Rights Reserved
+        © 2026 Loss Scalles Pro — Roblox Enhancement Suite
     </div>
 
 </div>
 
 </body>
 </html>
+```
+
