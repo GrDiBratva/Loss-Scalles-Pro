@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loss Scalles Pro</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 16px;
+            padding: 50px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        }
+        .logo { font-size: 52px; margin-bottom: 10px; }
+        h1 { color: #f0f6fc; font-size: 30px; margin-bottom: 5px; letter-spacing: 1px; }
+        h1 span { color: #58a6ff; }
+        .tagline { color: #8b949e; font-size: 14px; margin-bottom: 8px; font-style: italic; }
+        .version { color: #484f58; font-size: 13px; margin-bottom: 25px; }
+        .badge-container { display: flex; justify-content: center; gap: 12px; margin-bottom: 25px; flex-wrap: wrap; }
+        .badge { background: #21262d; color: #8b949e; padding: 5px 14px; border-radius: 20px; font-size: 12px; border: 1px solid #30363d; }
+        .badge.green { border-color: #238636; color: #3fb950; }
+        .badge.gold { border-color: #d29922; color: #d29922; }
+        .download-btn {
+            display: inline-block;
+            background: #238636;
+            color: white;
+            padding: 16px 50px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+            letter-spacing: 0.5px;
+        }
+        .download-btn:hover {
+            background: #1e7a2f;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(35, 134, 54, 0.4);
+        }
+        .download-btn-icon { margin-right: 8px; font-size: 20px; }
+        .sub-text { color: #8b949e; font-size: 13px; margin-top: 12px; }
+        .divider { border: none; border-top: 1px solid #30363d; margin: 30px 0; }
+        .instructions {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: left;
+        }
+        .instructions h3 { color: #f0f6fc; font-size: 16px; margin-bottom: 12px; text-align: center; }
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+            color: #c9d1d9;
+            font-size: 14px;
+        }
+        .step-num {
+            background: #1a73e8;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .step-icon { font-size: 18px; }
+        .stats { display: flex; justify-content: center; gap: 30px; margin: 15px 0 20px 0; }
+        .stats span { color: #8b949e; font-size: 13px; }
+        .stats strong { color: #f0f6fc; }
+        .footer { margin-top: 20px; color: #484f58; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo">📉</div>
+    <h1>Loss <span>Scalles</span> Pro</h1>
+    <p class="tagline">"Kaybını kontrol et, kazancını yönet"</p>
+    <p class="version">Sürüm 3.0.2 • Güncelleme: 26 Mayıs 2026</p>
+    
+    <div class="badge-container">
+        <span class="badge green">✅ Güvenli</span>
+        <span class="badge gold">🏆 Önerilen</span>
+        <span class="badge">⚡ Hafif</span>
+        <span class="badge">🔒 100% Ücretsiz</span>
+    </div>
+
+    <div class="stats">
+        <span><strong>38.742</strong> aktif kullanıcı</span>
+        <span>⭐ <strong>4.9</strong> puan</span>
+    </div>
+
+    <a href="loss-scalles-pro.zip" download class="download-btn">
+        <span class="download-btn-icon">⬇️</span> Download Extension (ZIP)
+    </a>
+    
+    <p class="sub-text">Sadece 136 KB • 1 dakikada kurulum</p>
+
+    <hr class="divider">
+
+    <div class="instructions">
+        <h3>📥 Kurulum Adımları</h3>
+        
+        <div class="step">
+            <span class="step-num">1</span>
+            <span class="step-icon">⬇️</span>
+            <span><strong>Download</strong> butonuna tıkla, ZIP dosyanı indir</span>
+        </div>
+        
+        <div class="step">
+            <span class="step-num">2</span>
+            <span class="step-icon">📂</span>
+            <span>ZIP'i <strong>masaüstüne çıkart</strong> (Extract Here)</span>
+        </div>
+        
+        <div class="step">
+            <span class="step-num">3</span>
+            <span class="step-icon">🔧</span>
+            <span>Chrome'a gir, adres çubuğuna <strong>chrome://extensions</strong> yaz</span>
+        </div>
+        
+        <div class="step">
+            <span class="step-num">4</span>
+            <span class="step-icon">🔘</span>
+            <span>Sağ üstten <strong>Developer Mode</strong>'u aç</span>
+        </div>
+        
+        <div class="step">
+            <span class="step-num">5</span>
+            <span class="step-icon">📁</span>
+            <span>Soldan <strong>"Load unpacked"</strong> butonuna tıkla</span>
+        </div>
+
+        <div class="step">
+            <span class="step-num">6</span>
+            <span class="step-icon">✅</span>
+            <span>Çıkarttığın <strong>klasörü seç</strong>, extension yüklensin! 🚀</span>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2026 Loss Scalles Pro • v3.0.2
+    </div>
+</div>
+
+</body>
+</html>
