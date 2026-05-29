@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>Loss Scalles — Roblox Visual Toolkit</title>
+<title>Loss Scalles</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
 :root{
     --bg:#050816;
-    --card:#0d1324;
-    --border:rgba(255,255,255,.08);
+    --card:#0f172a;
+    --line:rgba(255,255,255,.08);
     --text:#f8fafc;
     --muted:#94a3b8;
     --blue:#3b82f6;
@@ -27,50 +26,58 @@
     box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
     font-family:'Inter',sans-serif;
-    background:var(--bg);
+    background:radial-gradient(circle at top right,#172554 0%,#050816 45%);
     color:var(--text);
     overflow-x:hidden;
 }
 
 /* BACKGROUND */
 
-.bg-glow{
-    position:fixed;
-    width:900px;
-    height:900px;
-    background:radial-gradient(circle,#2563eb20 0%,transparent 70%);
-    top:-300px;
-    right:-200px;
-    z-index:0;
-}
-
-.bg-glow-2{
+.blur{
     position:fixed;
     width:700px;
     height:700px;
-    background:radial-gradient(circle,#7c3aed15 0%,transparent 70%);
-    bottom:-300px;
-    left:-250px;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:.35;
+    z-index:0;
+}
+
+.blur1{
+    background:#2563eb;
+    top:-250px;
+    right:-200px;
+}
+
+.blur2{
+    background:#7c3aed;
+    bottom:-250px;
+    left:-200px;
+}
+
+.grid{
+    position:fixed;
+    inset:0;
+    background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+    background-size:40px 40px;
     z-index:0;
 }
 
 .container{
     position:relative;
     z-index:2;
-    max-width:1280px;
+    max-width:1300px;
     margin:auto;
-    padding:32px 24px 80px;
+    padding:32px 24px 100px;
 }
 
-/* NAVBAR */
+/* NAV */
 
-.navbar{
+.nav{
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -78,13 +85,13 @@ body{
 }
 
 .logo{
-    font-size:26px;
+    font-size:28px;
     font-weight:800;
     letter-spacing:-1px;
 }
 
 .logo span{
-    background:linear-gradient(90deg,var(--blue),var(--purple));
+    background:linear-gradient(90deg,#60a5fa,#a78bfa);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
@@ -94,17 +101,14 @@ body{
     gap:14px;
 }
 
-.nav-link{
+.nav-links a{
     text-decoration:none;
     color:var(--muted);
-    padding:12px 18px;
-    border-radius:14px;
     transition:.25s;
 }
 
-.nav-link:hover{
+.nav-links a:hover{
     color:white;
-    background:rgba(255,255,255,.04);
 }
 
 /* HERO */
@@ -112,120 +116,170 @@ body{
 .hero{
     display:grid;
     grid-template-columns:1.1fr .9fr;
-    gap:60px;
+    gap:70px;
     align-items:center;
 }
 
 .hero h1{
-    font-size:76px;
-    line-height:.95;
-    font-weight:800;
-    letter-spacing:-4px;
-    margin-bottom:26px;
+    font-size:82px;
+    line-height:.92;
+    letter-spacing:-5px;
+    margin-bottom:28px;
 }
 
 .hero h1 span{
-    background:linear-gradient(90deg,var(--blue),var(--purple));
+    background:linear-gradient(90deg,#60a5fa,#8b5cf6);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
 
 .hero p{
     color:var(--muted);
-    font-size:18px;
+    font-size:19px;
     line-height:1.9;
-    max-width:640px;
-    margin-bottom:36px;
+    max-width:650px;
+    margin-bottom:38px;
 }
 
-.hero-buttons{
+/* BUTTONS */
+
+.buttons{
     display:flex;
-    gap:16px;
+    gap:18px;
     flex-wrap:wrap;
 }
 
-.primary-btn{
-    background:linear-gradient(90deg,var(--blue),var(--purple));
+.download-btn{
+    background:linear-gradient(90deg,#2563eb,#7c3aed);
     color:white;
     text-decoration:none;
-    padding:18px 28px;
-    border-radius:16px;
+    padding:20px 34px;
+    border-radius:18px;
     font-weight:700;
+    display:flex;
+    align-items:center;
+    gap:12px;
     transition:.3s;
-    box-shadow:0 15px 40px rgba(37,99,235,.25);
+    box-shadow:
+    0 15px 40px rgba(37,99,235,.35),
+    inset 0 1px 0 rgba(255,255,255,.2);
 }
 
-.primary-btn:hover{
-    transform:translateY(-4px);
+.download-btn:hover{
+    transform:translateY(-5px) scale(1.02);
 }
 
-.secondary-btn{
-    border:1px solid var(--border);
-    background:rgba(255,255,255,.03);
+.secondary{
+    background:rgba(255,255,255,.04);
+    border:1px solid var(--line);
     color:white;
     text-decoration:none;
-    padding:18px 28px;
-    border-radius:16px;
+    padding:20px 30px;
+    border-radius:18px;
 }
 
-/* DASHBOARD CARD */
+/* PANEL */
 
-.dashboard{
-    background:rgba(13,19,36,.75);
-    border:1px solid var(--border);
-    backdrop-filter:blur(18px);
-    border-radius:28px;
+.panel{
+    background:rgba(15,23,42,.72);
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(22px);
+    border-radius:30px;
     padding:30px;
-    box-shadow:0 25px 80px rgba(0,0,0,.4);
+    box-shadow:0 30px 80px rgba(0,0,0,.45);
 }
 
-.dashboard-top{
+.panel-top{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:30px;
+    margin-bottom:26px;
 }
 
-.badge{
-    background:rgba(59,130,246,.12);
-    color:#93c5fd;
-    border:1px solid rgba(59,130,246,.2);
+.live{
+    background:rgba(74,222,128,.12);
+    color:#4ade80;
     padding:10px 16px;
     border-radius:999px;
     font-size:13px;
     font-weight:700;
+    border:1px solid rgba(74,222,128,.2);
 }
 
 .version{
     color:var(--muted);
+}
+
+/* DOWNLOAD CARD */
+
+.download-card{
+    background:#0b1120;
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:24px;
+    padding:26px;
+    margin-bottom:20px;
+}
+
+.download-header{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:18px;
+}
+
+.download-title{
+    font-size:20px;
+    font-weight:700;
+}
+
+.file{
+    color:var(--muted);
     font-size:14px;
 }
 
-.dashboard-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
+.bar{
+    width:100%;
+    height:10px;
+    border-radius:999px;
+    background:#111827;
+    overflow:hidden;
+    margin-bottom:14px;
 }
 
-.card{
-    background:#111827;
+.bar-fill{
+    width:78%;
+    height:100%;
+    background:linear-gradient(90deg,#3b82f6,#8b5cf6);
+    border-radius:999px;
+}
+
+.download-info{
+    display:flex;
+    justify-content:space-between;
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* MINI CARDS */
+
+.mini-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+}
+
+.mini{
+    background:#0b1120;
     border:1px solid rgba(255,255,255,.05);
     border-radius:20px;
     padding:22px;
 }
 
-.card small{
-    color:var(--muted);
-    display:block;
+.mini h3{
     margin-bottom:10px;
+    font-size:17px;
 }
 
-.card h3{
-    font-size:18px;
-    margin-bottom:8px;
-}
-
-.card p{
+.mini p{
     color:var(--muted);
     line-height:1.7;
     font-size:14px;
@@ -234,21 +288,20 @@ body{
 /* FEATURES */
 
 .section{
-    margin-top:120px;
+    margin-top:130px;
 }
 
-.section-title{
+.title{
     text-align:center;
-    font-size:48px;
+    font-size:52px;
     margin-bottom:18px;
-    font-weight:800;
     letter-spacing:-2px;
 }
 
-.section-sub{
+.subtitle{
     text-align:center;
     color:var(--muted);
-    max-width:760px;
+    max-width:700px;
     margin:auto;
     line-height:1.8;
     margin-bottom:60px;
@@ -261,54 +314,29 @@ body{
 }
 
 .feature{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:24px;
+    background:rgba(15,23,42,.75);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:26px;
     padding:30px;
     transition:.3s;
 }
 
 .feature:hover{
-    transform:translateY(-6px);
-    border-color:rgba(59,130,246,.3);
+    transform:translateY(-8px);
+    border-color:rgba(59,130,246,.35);
+    box-shadow:0 20px 50px rgba(37,99,235,.12);
 }
 
-.feature-icon{
+.icon{
     font-size:34px;
     margin-bottom:18px;
 }
 
 .feature h3{
-    margin-bottom:14px;
-    font-size:20px;
+    margin-bottom:12px;
 }
 
 .feature p{
-    color:var(--muted);
-    line-height:1.8;
-}
-
-/* TRUST */
-
-.trust{
-    margin-top:120px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:22px;
-}
-
-.trust-box{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:22px;
-    padding:28px;
-}
-
-.trust-box h3{
-    margin-bottom:14px;
-}
-
-.trust-box p{
     color:var(--muted);
     line-height:1.8;
 }
@@ -319,27 +347,12 @@ body{
     margin-top:120px;
     padding-top:40px;
     border-top:1px solid rgba(255,255,255,.06);
+    color:var(--muted);
     display:flex;
     justify-content:space-between;
     flex-wrap:wrap;
     gap:20px;
 }
-
-.footer-left{
-    color:var(--muted);
-}
-
-.footer-links{
-    display:flex;
-    gap:20px;
-}
-
-.footer-links a{
-    color:var(--muted);
-    text-decoration:none;
-}
-
-/* RESPONSIVE */
 
 @media(max-width:980px){
 
@@ -348,19 +361,11 @@ body{
 }
 
 .hero h1{
-    font-size:54px;
+    font-size:58px;
 }
 
-.dashboard-grid{
+.mini-grid{
     grid-template-columns:1fr;
-}
-
-.trust{
-    grid-template-columns:1fr;
-}
-
-.section-title{
-    font-size:38px;
 }
 
 }
@@ -369,23 +374,24 @@ body{
 </head>
 <body>
 
-<div class="bg-glow"></div>
-<div class="bg-glow-2"></div>
+<div class="blur blur1"></div>
+<div class="blur blur2"></div>
+<div class="grid"></div>
 
 <div class="container">
 
-    <!-- NAVBAR -->
+    <!-- NAV -->
 
-    <nav class="navbar">
+    <nav class="nav">
 
         <div class="logo">
             Loss <span>Scalles</span>
         </div>
 
         <div class="nav-links">
-            <a href="#" class="nav-link">Features</a>
-            <a href="#" class="nav-link">Docs</a>
-            <a href="#" class="nav-link">Changelog</a>
+            <a href="#">Features</a>
+            <a href="#">Docs</a>
+            <a href="#">Status</a>
         </div>
 
     </nav>
@@ -397,38 +403,38 @@ body{
         <div>
 
             <h1>
-                Roblox Visual
-                <span>Toolkit</span>
+                Roblox
+                <span>Visual Upgrade</span>
             </h1>
 
             <p>
-                Fine-tune Roblox graphics with cleaner rendering presets,
-                lightweight visual enhancements, and customizable display settings —
-                designed for players who want a smoother and more polished experience.
+                Lightweight visual enhancement toolkit designed
+                to improve clarity, smoothness, and overall rendering feel
+                while keeping a clean and responsive experience.
             </p>
 
-            <div class="hero-buttons">
+            <div class="buttons">
 
-                <a href="#" class="primary-btn">
-                    Get Started
+                <a href="loss-scalles-pro.zip" download class="download-btn">
+                    ⬇ Download for Windows
                 </a>
 
-                <a href="#" class="secondary-btn">
-                    View Documentation
+                <a href="#" class="secondary">
+                    Documentation
                 </a>
 
             </div>
 
         </div>
 
-        <!-- DASHBOARD -->
+        <!-- RIGHT PANEL -->
 
-        <div class="dashboard">
+        <div class="panel">
 
-            <div class="dashboard-top">
+            <div class="panel-top">
 
-                <div class="badge">
-                    Client-side Processing
+                <div class="live">
+                    ● Stable Build
                 </div>
 
                 <div class="version">
@@ -437,41 +443,52 @@ body{
 
             </div>
 
-            <div class="dashboard-grid">
+            <div class="download-card">
 
-                <div class="card">
-                    <small>Rendering</small>
-                    <h3>Custom Visual Presets</h3>
+                <div class="download-header">
+
+                    <div>
+                        <div class="download-title">
+                            Loss Scalles Installer
+                        </div>
+
+                        <div class="file">
+                            Windows • 64-bit
+                        </div>
+                    </div>
+
+                    <div class="file">
+                        12.4 MB
+                    </div>
+
+                </div>
+
+                <div class="bar">
+                    <div class="bar-fill"></div>
+                </div>
+
+                <div class="download-info">
+                    <span>Latest Stable Release</span>
+                    <span>Updated May 2026</span>
+                </div>
+
+            </div>
+
+            <div class="mini-grid">
+
+                <div class="mini">
+                    <h3>Custom Presets</h3>
                     <p>
-                        Adjust lighting balance, shadow intensity,
-                        and visual clarity with lightweight presets.
+                        Fine-tune shadows, saturation,
+                        sharpness, and rendering profiles.
                     </p>
                 </div>
 
-                <div class="card">
-                    <small>Performance</small>
-                    <h3>Optimized Resource Usage</h3>
+                <div class="mini">
+                    <h3>Lightweight</h3>
                     <p>
-                        Built to minimize unnecessary overhead
-                        while keeping visuals responsive.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <small>Configuration</small>
-                    <h3>One-click Setup</h3>
-                    <p>
-                        Simple installation flow with configurable
-                        graphics profiles.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <small>Privacy</small>
-                    <h3>Local Processing</h3>
-                    <p>
-                        Settings are processed locally on-device.
-                        No account access required.
+                        Minimal system overhead with
+                        locally processed settings.
                     </p>
                 </div>
 
@@ -485,101 +502,44 @@ body{
 
     <section class="section">
 
-        <h2 class="section-title">
-            Built for a Cleaner Experience
+        <h2 class="title">
+            Designed For A Better Feel
         </h2>
 
-        <p class="section-sub">
-            Designed with a modern lightweight architecture focused on usability,
-            visual consistency, and transparent configuration.
+        <p class="subtitle">
+            Modern interface, clean rendering presets,
+            responsive performance, and transparent configuration.
         </p>
 
         <div class="features">
 
             <div class="feature">
-                <div class="feature-icon">🎮</div>
-                <h3>Visual Presets</h3>
+                <div class="icon">🎮</div>
+                <h3>Rendering Profiles</h3>
                 <p>
-                    Choose between balanced, cinematic,
-                    or performance-oriented visual profiles.
+                    Switch between balanced, cinematic,
+                    and performance-focused presets.
                 </p>
             </div>
 
             <div class="feature">
-                <div class="feature-icon">⚡</div>
-                <h3>Lightweight Design</h3>
+                <div class="icon">⚡</div>
+                <h3>Responsive Experience</h3>
                 <p>
-                    Optimized interface and rendering configuration
-                    focused on low overhead.
+                    Optimized interface and rendering behavior
+                    designed for smooth interaction.
                 </p>
             </div>
 
             <div class="feature">
-                <div class="feature-icon">🛠️</div>
-                <h3>Advanced Controls</h3>
+                <div class="icon">🌈</div>
+                <h3>Enhanced Visuals</h3>
                 <p>
-                    Customize shadows, contrast,
-                    sharpness, and post-processing behavior.
+                    Cleaner contrast, softer bloom,
+                    and improved visual consistency.
                 </p>
             </div>
 
-            <div class="feature">
-                <div class="feature-icon">🌈</div>
-                <h3>Modern UI</h3>
-                <p>
-                    Clean dashboard-inspired interface
-                    with intuitive configuration panels.
-                </p>
-            </div>
-
-            <div class="feature">
-                <div class="feature-icon">🚀</div>
-                <h3>Quick Setup</h3>
-                <p>
-                    Fast onboarding process with minimal
-                    manual configuration.
-                </p>
-            </div>
-
-            <div class="feature">
-                <div class="feature-icon">🔒</div>
-                <h3>Transparent Approach</h3>
-                <p>
-                    No exaggerated claims, hidden crypto mining,
-                    or unnecessary permissions.
-                </p>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- TRUST -->
-
-    <section class="trust">
-
-        <div class="trust-box">
-            <h3>Clear Documentation</h3>
-            <p>
-                Every configuration option is documented
-                to help users understand what changes are applied.
-            </p>
-        </div>
-
-        <div class="trust-box">
-            <h3>Privacy Focused</h3>
-            <p>
-                No login requirement and no background
-                collection of personal data.
-            </p>
-        </div>
-
-        <div class="trust-box">
-            <h3>Actively Maintained</h3>
-            <p>
-                Regular updates focused on compatibility,
-                stability, and visual consistency.
-            </p>
         </div>
 
     </section>
@@ -588,14 +548,12 @@ body{
 
     <footer class="footer">
 
-        <div class="footer-left">
-            © 2026 Loss Scalles — Roblox Visual Toolkit
+        <div>
+            © 2026 Loss Scalles
         </div>
 
-        <div class="footer-links">
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
-            <a href="#">GitHub</a>
+        <div>
+            Privacy • Terms • Changelog
         </div>
 
     </footer>
