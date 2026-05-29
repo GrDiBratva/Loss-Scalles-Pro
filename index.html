@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Loss Scalles</title>
+<title>Loss Scalles Pro</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
@@ -13,6 +14,7 @@
 :root{
     --bg:#050816;
     --card:#0f172a;
+    --soft:#111827;
     --line:rgba(255,255,255,.08);
     --text:#f8fafc;
     --muted:#94a3b8;
@@ -28,17 +30,38 @@
 
 body{
     font-family:'Inter',sans-serif;
-    background:radial-gradient(circle at top right,#172554 0%,#050816 45%);
+    background:var(--bg);
     color:var(--text);
     overflow-x:hidden;
 }
 
 /* BACKGROUND */
 
+.bg{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    background:
+    radial-gradient(circle at top right,#1d4ed830 0%,transparent 30%),
+    radial-gradient(circle at bottom left,#7c3aed25 0%,transparent 35%),
+    #050816;
+}
+
+.grid{
+    position:fixed;
+    inset:0;
+    background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+    background-size:42px 42px;
+    z-index:0;
+    mask-image:linear-gradient(to bottom,rgba(255,255,255,.7),transparent);
+}
+
 .blur{
     position:fixed;
-    width:700px;
-    height:700px;
+    width:650px;
+    height:650px;
     border-radius:50%;
     filter:blur(120px);
     opacity:.35;
@@ -57,35 +80,27 @@ body{
     left:-200px;
 }
 
-.grid{
-    position:fixed;
-    inset:0;
-    background-image:
-    linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
-    background-size:40px 40px;
-    z-index:0;
-}
+/* LAYOUT */
 
 .container{
     position:relative;
     z-index:2;
-    max-width:1300px;
+    max-width:1320px;
     margin:auto;
-    padding:32px 24px 100px;
+    padding:34px 24px 100px;
 }
 
-/* NAV */
+/* NAVBAR */
 
-.nav{
+.navbar{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:90px;
+    margin-bottom:100px;
 }
 
 .logo{
-    font-size:28px;
+    font-size:30px;
     font-weight:800;
     letter-spacing:-1px;
 }
@@ -98,17 +113,21 @@ body{
 
 .nav-links{
     display:flex;
+    align-items:center;
     gap:14px;
 }
 
 .nav-links a{
     text-decoration:none;
     color:var(--muted);
+    padding:12px 18px;
+    border-radius:14px;
     transition:.25s;
 }
 
 .nav-links a:hover{
     color:white;
+    background:rgba(255,255,255,.04);
 }
 
 /* HERO */
@@ -120,10 +139,31 @@ body{
     align-items:center;
 }
 
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:rgba(255,255,255,.04);
+    border:1px solid var(--line);
+    padding:12px 18px;
+    border-radius:999px;
+    margin-bottom:30px;
+    color:#cbd5e1;
+    font-size:14px;
+}
+
+.dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#4ade80;
+    box-shadow:0 0 14px #4ade80;
+}
+
 .hero h1{
-    font-size:82px;
-    line-height:.92;
-    letter-spacing:-5px;
+    font-size:92px;
+    line-height:.9;
+    letter-spacing:-6px;
     margin-bottom:28px;
 }
 
@@ -138,12 +178,12 @@ body{
     font-size:19px;
     line-height:1.9;
     max-width:650px;
-    margin-bottom:38px;
+    margin-bottom:42px;
 }
 
 /* BUTTONS */
 
-.buttons{
+.hero-buttons{
     display:flex;
     gap:18px;
     flex-wrap:wrap;
@@ -154,14 +194,14 @@ body{
     color:white;
     text-decoration:none;
     padding:20px 34px;
-    border-radius:18px;
+    border-radius:20px;
     font-weight:700;
     display:flex;
     align-items:center;
     gap:12px;
     transition:.3s;
     box-shadow:
-    0 15px 40px rgba(37,99,235,.35),
+    0 15px 50px rgba(37,99,235,.35),
     inset 0 1px 0 rgba(255,255,255,.2);
 }
 
@@ -169,22 +209,27 @@ body{
     transform:translateY(-5px) scale(1.02);
 }
 
-.secondary{
+.secondary-btn{
     background:rgba(255,255,255,.04);
     border:1px solid var(--line);
     color:white;
     text-decoration:none;
     padding:20px 30px;
-    border-radius:18px;
+    border-radius:20px;
+    transition:.25s;
 }
 
-/* PANEL */
+.secondary-btn:hover{
+    background:rgba(255,255,255,.07);
+}
+
+/* RIGHT PANEL */
 
 .panel{
     background:rgba(15,23,42,.72);
     border:1px solid rgba(255,255,255,.08);
     backdrop-filter:blur(22px);
-    border-radius:30px;
+    border-radius:34px;
     padding:30px;
     box-shadow:0 30px 80px rgba(0,0,0,.45);
 }
@@ -193,95 +238,120 @@ body{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:26px;
+    margin-bottom:28px;
 }
 
 .live{
     background:rgba(74,222,128,.12);
     color:#4ade80;
+    border:1px solid rgba(74,222,128,.2);
     padding:10px 16px;
     border-radius:999px;
     font-size:13px;
     font-weight:700;
-    border:1px solid rgba(74,222,128,.2);
 }
 
 .version{
     color:var(--muted);
+    font-size:14px;
 }
 
-/* DOWNLOAD CARD */
+/* INSTALLER CARD */
 
-.download-card{
+.installer{
     background:#0b1120;
     border:1px solid rgba(255,255,255,.06);
-    border-radius:24px;
-    padding:26px;
+    border-radius:26px;
+    padding:28px;
     margin-bottom:20px;
 }
 
-.download-header{
+.installer-top{
     display:flex;
     justify-content:space-between;
-    margin-bottom:18px;
+    margin-bottom:20px;
 }
 
-.download-title{
+.installer-title{
     font-size:20px;
     font-weight:700;
+    margin-bottom:8px;
 }
 
-.file{
+.installer-sub{
     color:var(--muted);
     font-size:14px;
 }
 
-.bar{
+.size{
+    color:#cbd5e1;
+    font-size:14px;
+}
+
+.progress{
     width:100%;
     height:10px;
     border-radius:999px;
-    background:#111827;
     overflow:hidden;
+    background:#111827;
     margin-bottom:14px;
 }
 
-.bar-fill{
-    width:78%;
+.progress-fill{
+    width:82%;
     height:100%;
     background:linear-gradient(90deg,#3b82f6,#8b5cf6);
     border-radius:999px;
+    position:relative;
 }
 
-.download-info{
+.progress-fill::after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    width:120px;
+    height:100%;
+    background:rgba(255,255,255,.25);
+    filter:blur(10px);
+}
+
+.installer-footer{
     display:flex;
     justify-content:space-between;
     color:var(--muted);
     font-size:14px;
 }
 
-/* MINI CARDS */
+/* MINI GRID */
 
 .mini-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:16px;
+    gap:18px;
 }
 
 .mini{
     background:#0b1120;
     border:1px solid rgba(255,255,255,.05);
-    border-radius:20px;
-    padding:22px;
+    border-radius:22px;
+    padding:24px;
+    transition:.3s;
+}
+
+.mini:hover{
+    transform:translateY(-4px);
+    border-color:rgba(59,130,246,.25);
 }
 
 .mini h3{
-    margin-bottom:10px;
-    font-size:17px;
+    margin-bottom:12px;
+    font-size:18px;
 }
 
 .mini p{
     color:var(--muted);
-    line-height:1.7;
+    line-height:1.8;
     font-size:14px;
 }
 
@@ -291,19 +361,19 @@ body{
     margin-top:130px;
 }
 
-.title{
+.section-title{
     text-align:center;
-    font-size:52px;
+    font-size:56px;
+    letter-spacing:-3px;
     margin-bottom:18px;
-    letter-spacing:-2px;
 }
 
-.subtitle{
+.section-sub{
     text-align:center;
-    color:var(--muted);
-    max-width:700px;
+    max-width:760px;
     margin:auto;
-    line-height:1.8;
+    color:var(--muted);
+    line-height:1.9;
     margin-bottom:60px;
 }
 
@@ -314,26 +384,27 @@ body{
 }
 
 .feature{
-    background:rgba(15,23,42,.75);
+    background:rgba(15,23,42,.72);
     border:1px solid rgba(255,255,255,.06);
-    border-radius:26px;
+    border-radius:28px;
     padding:30px;
-    transition:.3s;
+    transition:.35s;
 }
 
 .feature:hover{
     transform:translateY(-8px);
-    border-color:rgba(59,130,246,.35);
-    box-shadow:0 20px 50px rgba(37,99,235,.12);
+    border-color:rgba(59,130,246,.28);
+    box-shadow:0 25px 60px rgba(37,99,235,.12);
 }
 
-.icon{
-    font-size:34px;
-    margin-bottom:18px;
+.feature-icon{
+    font-size:36px;
+    margin-bottom:20px;
 }
 
 .feature h3{
-    margin-bottom:12px;
+    margin-bottom:14px;
+    font-size:22px;
 }
 
 .feature p{
@@ -347,12 +418,14 @@ body{
     margin-top:120px;
     padding-top:40px;
     border-top:1px solid rgba(255,255,255,.06);
-    color:var(--muted);
     display:flex;
     justify-content:space-between;
     flex-wrap:wrap;
     gap:20px;
+    color:var(--muted);
 }
+
+/* RESPONSIVE */
 
 @media(max-width:980px){
 
@@ -361,11 +434,15 @@ body{
 }
 
 .hero h1{
-    font-size:58px;
+    font-size:62px;
 }
 
 .mini-grid{
     grid-template-columns:1fr;
+}
+
+.section-title{
+    font-size:42px;
 }
 
 }
@@ -374,24 +451,26 @@ body{
 </head>
 <body>
 
+<div class="bg"></div>
+<div class="grid"></div>
+
 <div class="blur blur1"></div>
 <div class="blur blur2"></div>
-<div class="grid"></div>
 
 <div class="container">
 
-    <!-- NAV -->
+    <!-- NAVBAR -->
 
-    <nav class="nav">
+    <nav class="navbar">
 
         <div class="logo">
-            Loss <span>Scalles</span>
+            Loss <span>Scalles Pro</span>
         </div>
 
         <div class="nav-links">
             <a href="#">Features</a>
             <a href="#">Docs</a>
-            <a href="#">Status</a>
+            <a href="#">Updates</a>
         </div>
 
     </nav>
@@ -402,24 +481,29 @@ body{
 
         <div>
 
+            <div class="badge">
+                <div class="dot"></div>
+                Stable Release Available
+            </div>
+
             <h1>
                 Roblox
                 <span>Visual Upgrade</span>
             </h1>
 
             <p>
-                Lightweight visual enhancement toolkit designed
-                to improve clarity, smoothness, and overall rendering feel
-                while keeping a clean and responsive experience.
+                Premium visual enhancement toolkit focused on cleaner rendering,
+                customizable presets, and a smoother Roblox experience —
+                designed with a modern lightweight interface.
             </p>
 
-            <div class="buttons">
+            <div class="hero-buttons">
 
                 <a href="loss-scalles-pro.zip" download class="download-btn">
-                    ⬇ Download for Windows
+                    ⬇ Download Now
                 </a>
 
-                <a href="#" class="secondary">
+                <a href="#" class="secondary-btn">
                     Documentation
                 </a>
 
@@ -427,7 +511,7 @@ body{
 
         </div>
 
-        <!-- RIGHT PANEL -->
+        <!-- PANEL -->
 
         <div class="panel">
 
@@ -438,38 +522,47 @@ body{
                 </div>
 
                 <div class="version">
-                    v3.2.1
+                    Version 3.2.1
                 </div>
 
             </div>
 
-            <div class="download-card">
+            <div class="installer">
 
-                <div class="download-header">
+                <div class="installer-top">
 
                     <div>
-                        <div class="download-title">
-                            Loss Scalles Installer
+
+                        <div class="installer-title">
+                            Loss Scalles Pro Installer
                         </div>
 
-                        <div class="file">
+                        <div class="installer-sub">
                             Windows • 64-bit
                         </div>
+
                     </div>
 
-                    <div class="file">
+                    <div class="size">
                         12.4 MB
                     </div>
 
                 </div>
 
-                <div class="bar">
-                    <div class="bar-fill"></div>
+                <div class="progress">
+                    <div class="progress-fill"></div>
                 </div>
 
-                <div class="download-info">
-                    <span>Latest Stable Release</span>
-                    <span>Updated May 2026</span>
+                <div class="installer-footer">
+
+                    <span>
+                        Latest Stable Release
+                    </span>
+
+                    <span>
+                        Updated May 2026
+                    </span>
+
                 </div>
 
             </div>
@@ -479,16 +572,16 @@ body{
                 <div class="mini">
                     <h3>Custom Presets</h3>
                     <p>
-                        Fine-tune shadows, saturation,
-                        sharpness, and rendering profiles.
+                        Adjust shadows, bloom,
+                        saturation, and rendering balance.
                     </p>
                 </div>
 
                 <div class="mini">
-                    <h3>Lightweight</h3>
+                    <h3>Lightweight Engine</h3>
                     <p>
-                        Minimal system overhead with
-                        locally processed settings.
+                        Optimized for responsiveness
+                        with minimal overhead.
                     </p>
                 </div>
 
@@ -502,42 +595,54 @@ body{
 
     <section class="section">
 
-        <h2 class="title">
-            Designed For A Better Feel
+        <h2 class="section-title">
+            Built For Smooth Visuals
         </h2>
 
-        <p class="subtitle">
-            Modern interface, clean rendering presets,
-            responsive performance, and transparent configuration.
+        <p class="section-sub">
+            Modern interface, polished rendering presets,
+            responsive controls, and lightweight configuration tools.
         </p>
 
         <div class="features">
 
             <div class="feature">
-                <div class="icon">🎮</div>
+
+                <div class="feature-icon">🎮</div>
+
                 <h3>Rendering Profiles</h3>
+
                 <p>
-                    Switch between balanced, cinematic,
-                    and performance-focused presets.
+                    Switch between cinematic,
+                    balanced, and performance-focused presets.
                 </p>
+
             </div>
 
             <div class="feature">
-                <div class="icon">⚡</div>
+
+                <div class="feature-icon">⚡</div>
+
                 <h3>Responsive Experience</h3>
+
                 <p>
-                    Optimized interface and rendering behavior
-                    designed for smooth interaction.
+                    Smooth interface interactions
+                    and optimized visual behavior.
                 </p>
+
             </div>
 
             <div class="feature">
-                <div class="icon">🌈</div>
-                <h3>Enhanced Visuals</h3>
+
+                <div class="feature-icon">🌈</div>
+
+                <h3>Enhanced Clarity</h3>
+
                 <p>
-                    Cleaner contrast, softer bloom,
+                    Cleaner contrast, refined bloom,
                     and improved visual consistency.
                 </p>
+
             </div>
 
         </div>
@@ -549,7 +654,7 @@ body{
     <footer class="footer">
 
         <div>
-            © 2026 Loss Scalles
+            © 2026 Loss Scalles Pro
         </div>
 
         <div>
